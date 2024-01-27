@@ -28,19 +28,31 @@ label start:
     
     e "哇，慢一点。我可不想被摔下去！"
 
+    menu:
+        "抓紧缰绳(进入goodend)":
+            jump goodend  # 结束游戏
+        "吓得松开双手去抱小龙(进入badend)":
+            jump badend  # 开始游戏
+
+label goodend:
+    e "谢谢你救了我！"
+    jump credits
+
+label badend:
+    hide riding happy
+    "你向空中坠落，眼角不断掉出后悔的形状..."
     jump credits
 
 label credits:
     scene black  # 设置背景为黑色
     pause 1.0  # 等待1秒钟
-
     "制作团队"  # 第一行文本
     pause 1.0  # 每行文字显示后暂停1秒钟
-    "编剧: John Doe"  # 第二行文本
+    "编剧: 熊超"  # 第二行文本
     pause 1.0
-    "美术设计: Jane Smith"  # 第三行文本
+    "美术设计: Bing Create、Pika.art"  # 第三行文本
     pause 1.0
-    "音乐: Alex Johnson"  # 第四行文本
+    "音乐: 暂无"  # 第四行文本
     pause 1.0
     "特别感谢: 家人和朋友"  # 第五行文本
     pause 1.0
