@@ -1,0 +1,47 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 29, in script
+    $ renpy.movie_cutscene("\images\riding_happy.webm",delay=200.0)
+  File "game/script.rpy", line 29, in <module>
+    $ renpy.movie_cutscene("\images\riding_happy.webm",delay=200.0)
+Exception: Backslash in filename, use '/' instead: '\\images\riding_happy.webm'
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 29, in script
+    $ renpy.movie_cutscene("\images\riding_happy.webm",delay=200.0)
+  File "D:\Games\renpy-8.1.3-sdk\renpy\ast.py", line 1138, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "D:\Games\renpy-8.1.3-sdk\renpy\python.py", line 1122, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 29, in <module>
+    $ renpy.movie_cutscene("\images\riding_happy.webm",delay=200.0)
+  File "D:\Games\renpy-8.1.3-sdk\renpy\exports.py", line 1700, in movie_cutscene
+    rv = renpy.ui.interact(suppress_overlay=True,
+  File "D:\Games\renpy-8.1.3-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "D:\Games\renpy-8.1.3-sdk\renpy\display\core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "D:\Games\renpy-8.1.3-sdk\renpy\display\core.py", line 4379, in interact_core
+    renpy.audio.audio.periodic()
+  File "D:\Games\renpy-8.1.3-sdk\renpy\audio\audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "D:\Games\renpy-8.1.3-sdk\renpy\audio\audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "D:\Games\renpy-8.1.3-sdk\renpy\audio\audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "D:\Games\renpy-8.1.3-sdk\renpy\audio\audio.py", line 534, in periodic
+    topf = load(filename)
+  File "D:\Games\renpy-8.1.3-sdk\renpy\audio\audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
+  File "D:\Games\renpy-8.1.3-sdk\renpy\loader.py", line 824, in load
+    raise Exception("Backslash in filename, use '/' instead: %r" % name)
+Exception: Backslash in filename, use '/' instead: '\\images\riding_happy.webm'
+
+Windows-10-10.0.19041 AMD64
+Ren'Py 8.1.3.23091805
+Code D 1.0
+Sat Jan 27 12:14:37 2024
