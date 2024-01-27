@@ -34,3 +34,9 @@ coming soon
 美术 Bing Create
 
 音乐 FreePD
+
+## 支持作者
+
+扫码预约远程协助，2杯咖啡解决一个电脑问题哦。
+
+![店铺小程序](/assets/店铺.jpg)
