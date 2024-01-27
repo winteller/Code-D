@@ -4,8 +4,6 @@
 
 define e = Character("艾琳")
 
-#image riding happy movie = Movie(play="/images/riding_happy.webm", side_mask=True)
-
 # 游戏在此开始。
 
 label start:
@@ -24,10 +22,10 @@ label start:
 
     e "小龙，我们出发吧！"
 
-    #show riding happy movie
+    #全屏播放动画后3秒后继续剧情
 
-    $ renpy.movie_cutscene("/images/riding_happy.webm",delay=200.0)
-
+    $ renpy.movie_cutscene("/images/cutscene/riding_happy.webm",delay=3.0)
+    
     e "哇，慢一点。我可不想被摔下去！"
 
     # 此处为游戏结尾。
