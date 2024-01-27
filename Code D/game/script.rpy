@@ -28,6 +28,23 @@ label start:
     
     e "哇，慢一点。我可不想被摔下去！"
 
-    # 此处为游戏结尾。
+    jump credits
+
+label credits:
+    scene black  # 设置背景为黑色
+    pause 1.0  # 等待1秒钟
+
+    "制作团队"  # 第一行文本
+    pause 1.0  # 每行文字显示后暂停1秒钟
+    "编剧: John Doe"  # 第二行文本
+    pause 1.0
+    "美术设计: Jane Smith"  # 第三行文本
+    pause 1.0
+    "音乐: Alex Johnson"  # 第四行文本
+    pause 1.0
+    "特别感谢: 家人和朋友"  # 第五行文本
+    pause 1.0
+    "Ren'Py引擎"  # 第六行文本
 
     return
+    # 此处为游戏结尾。
