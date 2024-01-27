@@ -1,27 +1,31 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 29, in script
-    $ renpy.movie_cutscene("\images\riding_happy.webm",delay=200.0)
-  File "game/script.rpy", line 29, in <module>
-    $ renpy.movie_cutscene("\images\riding_happy.webm",delay=200.0)
-Exception: Backslash in filename, use '/' instead: '\\images\riding_happy.webm'
+  File "game/script.rpy", line 23, in script
+    e "小龙，我们出发吧！"
+  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
+    _window_show(auto=True)
+  File "renpy/common/000window.rpy", line 69, in _window_show
+    renpy.with_statement(trans)
+Exception: Backslash in filename, use '/' instead: '\x07udio\\BGM\\Pond.mp3'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 29, in script
-    $ renpy.movie_cutscene("\images\riding_happy.webm",delay=200.0)
-  File "D:\Games\renpy-8.1.3-sdk\renpy\ast.py", line 1138, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "D:\Games\renpy-8.1.3-sdk\renpy\python.py", line 1122, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/script.rpy", line 29, in <module>
-    $ renpy.movie_cutscene("\images\riding_happy.webm",delay=200.0)
-  File "D:\Games\renpy-8.1.3-sdk\renpy\exports.py", line 1700, in movie_cutscene
-    rv = renpy.ui.interact(suppress_overlay=True,
-  File "D:\Games\renpy-8.1.3-sdk\renpy\ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "game/script.rpy", line 23, in script
+    e "小龙，我们出发吧！"
+  File "D:\Games\renpy-8.1.3-sdk\renpy\ast.py", line 898, in execute
+    statement_name(stmt_name)
+  File "D:\Games\renpy-8.1.3-sdk\renpy\ast.py", line 47, in statement_name
+    i(name)
+  File "renpy/common/000window.rpy", line 114, in _window_auto_callback
+    _window_show(auto=True)
+  File "renpy/common/000window.rpy", line 69, in _window_show
+    renpy.with_statement(trans)
+  File "D:\Games\renpy-8.1.3-sdk\renpy\exports.py", line 1758, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "D:\Games\renpy-8.1.3-sdk\renpy\display\core.py", line 2978, in do_with
+    return self.interact(trans_pause=True,
   File "D:\Games\renpy-8.1.3-sdk\renpy\display\core.py", line 3582, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
   File "D:\Games\renpy-8.1.3-sdk\renpy\display\core.py", line 4379, in interact_core
@@ -39,9 +43,9 @@ Full traceback:
     rv = renpy.loader.load(fn, directory="audio")
   File "D:\Games\renpy-8.1.3-sdk\renpy\loader.py", line 824, in load
     raise Exception("Backslash in filename, use '/' instead: %r" % name)
-Exception: Backslash in filename, use '/' instead: '\\images\riding_happy.webm'
+Exception: Backslash in filename, use '/' instead: '\x07udio\\BGM\\Pond.mp3'
 
 Windows-10-10.0.19041 AMD64
 Ren'Py 8.1.3.23091805
 Code D 1.0
-Sat Jan 27 12:14:37 2024
+Sat Jan 27 15:14:05 2024
