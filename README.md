@@ -7,7 +7,7 @@ Code D will be  a visual novel that based on the dragon year of 2024
 ### 狐耳少女 小空
 
 ```prompt
-a cute wolf girl,golden braid hair,green eyes,red scarf,black coat
+a cute fox girl,golden braid hair,green eyes,red scarf,black coat
 ```
 
 示例
@@ -27,11 +27,15 @@ coming soon
 
 ## 技术参数 Specifications
 
+制作·著作 小熊电脑工坊
+
 引擎 Ren'py
 
 脚本 ChatGPT
 
-美术 Bing Create
+美术 BingCreate
+
+动画 Pika.art
 
 音乐 FreePD
 
