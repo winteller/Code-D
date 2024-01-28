@@ -10,7 +10,8 @@ define audio.fly = "audio/music/InventingFlight.mp3"
 define audio.drop = "audio/music/A Very Brady Special.mp3"
 
 # 声明此游戏使用的音效
-define audio.bird = "audio/sound/env_chun.mp3"
+define audio.birdChirp = "audio/sound/env_chun.mp3"
+define audio.cricketCall = "audio/sound/env_mushi.mp3"
 
 # 游戏在此开始。
 
@@ -29,7 +30,7 @@ label start:
     "龙年初始，狐耳族女孩小空迎来了一个特别的日子。"
     # 播放台词语音
     play audio goodmorning
-    play sound bird
+    play sound birdChirp
     e "噢！早上好！今天也是个不错的早晨呢！"
     "天空晴朗明媚，小空满怀期待地请求小龙带她一起翱翔于苍穹之上。"
     "小龙欣然答应了她的请求，两人简单收拾行李后便踏上了旅程。"
@@ -57,7 +58,7 @@ label goodend:
     "小空的心中充满了喜悦和兴奋，她感受到了自由的力量，仿佛能够触摸到无限的可能。"
     "小龙飞行的技巧熟练而优雅，他们在空中自在地穿梭，享受着这无与伦比的美妙时刻。"
     "小空的狐耳在风中飘动，笑容如花绽放，她感激地凝视着小龙，心中充满了对这段友情的珍视。"
-    play sound bird
+    play sound birdChirp
     "他们降落在一片花海之中，绚烂的花朵散发出迷人的香气。"
     "小空跳下小龙的背，她向四周张望，发现了一朵特别美丽的花。"
     "她小心翼翼地摘下它，轻轻握在手中。"
@@ -93,6 +94,7 @@ label badend:
     e "我回想起我们相识的那一天，那时的我还是个年轻而热血的青年，充满着对未来的憧憬和希望。"
     e "小龙是那个时候生命中的一束光，他的微笑能照亮我内心最深处的黑暗角落。"
     e "我们一起度过了那么多美好的时光，分享着彼此的喜怒哀乐，无论是欢笑还是泪水，我们总是互相扶持着走过每一个艰难的时刻。"
+    play sound cricketCall
     e "然而，命运却对我开了一个残酷的玩笑。"
     e "现在，我站在生命的尽头，回顾着那些美好的回忆，我不禁后悔起来。"
     e "后悔没有更多地珍惜每一刻，没有告诉小龙我有多么爱他，没有为我们的未来做更多的打算。"
@@ -112,6 +114,6 @@ label credits:
     stop music fadeout 1.0
     $ renpy.movie_cutscene("images/cutscene/CreditsMovie.webm")
     scene black
-    with fadeout
+    with fade
     return
     # 此处为游戏结尾。
