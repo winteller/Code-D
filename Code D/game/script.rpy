@@ -5,7 +5,12 @@
 define e = Character("小空",color="#fbffc8",font="gongfan.ttf")
 define d = Character("小龙",color="#c8ffc8",font="gongfan.ttf")
 
-$ renpy.music.register_channel(girlstalk)
+#声明此游戏使用的音乐
+define audio.fly = "audio/music/InventingFlight.mp3"
+define audio.drop = "audio/music/A Very Brady Special.mp3"
+
+# 声明此游戏使用的音效
+define audio.bird = "audio/sound/env_chun.mp3"
 
 # 游戏在此开始。
 
@@ -13,7 +18,7 @@ label start:
 
     # 显示一个背景。此处默认显示占位图，但您也可以在图片目录添""加一个文件
     # （命名为 bg room.png 或 bg room.jpg）来显示。
-    play music "audio/music/InventingFlight.mp3"
+    play music fly
     scene sunny sky
     with fade
     # 显示角色立绘。此处使用了占位图，但您也可以在图片目录添加命名为
@@ -23,7 +28,8 @@ label start:
     # 此处显示各行对话。
     "龙年初始，狐耳族女孩小空迎来了一个特别的日子。"
     # 播放台词语音
-    play audio "audio/voice/goodmorning.mp3"
+    play audio goodmorning
+    play sound bird
     e "噢！早上好！今天也是个不错的早晨呢！"
     "天空晴朗明媚，小空满怀期待地请求小龙带她一起翱翔于苍穹之上。"
     "小龙欣然答应了她的请求，两人简单收拾行李后便踏上了旅程。"
@@ -32,13 +38,9 @@ label start:
     with dissolve
     e "小龙，我们出发吧！"
     "他们来到了一片宽广的草原，那里的风吹拂着小空的长发，阳光温暖地洒在她们的身上。"
-    "小龙展开双翼，小空轻盈地跃上他的背，仿佛融入了风中的自由。"
-    #全屏播放动画后3秒后继续剧情
-
-    
-    
+    "小龙展开双翼，小空轻盈地跃上他的背，仿佛融入了风中的自由。"    
     e "哇，慢一点。我可不想被摔下去！"
-
+    stop sound
     menu:
 
         "随着小龙开始加速冲向高空，小空决定..."
@@ -49,13 +51,13 @@ label start:
             jump badend  # 开始游戏
 
 label goodend:
-    play music "audio/music/InventingFlight.mp3" if_changed
-    # play voice ""
+    play music fly if_changed
     e "谢谢你救了我！"
     "他们飞越着山脉和森林，眺望着绵延的大地和湛蓝的海洋。"
     "小空的心中充满了喜悦和兴奋，她感受到了自由的力量，仿佛能够触摸到无限的可能。"
     "小龙飞行的技巧熟练而优雅，他们在空中自在地穿梭，享受着这无与伦比的美妙时刻。"
     "小空的狐耳在风中飘动，笑容如花绽放，她感激地凝视着小龙，心中充满了对这段友情的珍视。"
+    play sound bird
     "他们降落在一片花海之中，绚烂的花朵散发出迷人的香气。"
     "小空跳下小龙的背，她向四周张望，发现了一朵特别美丽的花。"
     "她小心翼翼地摘下它，轻轻握在手中。"
@@ -82,7 +84,7 @@ label badend:
     scene black  # 设置背景为黑色
     with fade
     hide riding happy
-    play music "audio/music/A Very Brady Special.mp3" fadein 1.0
+    play music drop fadein 1.0
     "..."
     e "我和小龙的相识的场景回现在我的眼前"
     e "这些点滴小事，都是只属于我们两个的珍贵回忆。"
@@ -110,6 +112,6 @@ label credits:
     stop music fadeout 1.0
     $ renpy.movie_cutscene("images/cutscene/CreditsMovie.webm")
     scene black
-    with dissolve
+    with fadeout
     return
     # 此处为游戏结尾。
