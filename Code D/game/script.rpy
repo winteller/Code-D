@@ -5,13 +5,15 @@
 define e = Character("小空",color="#fbffc8",font="gongfan.ttf")
 define d = Character("小龙",color="#c8ffc8",font="gongfan.ttf")
 
+$ renpy.music.register_channel(girlstalk)
+
 # 游戏在此开始。
 
 label start:
 
     # 显示一个背景。此处默认显示占位图，但您也可以在图片目录添""加一个文件
     # （命名为 bg room.png 或 bg room.jpg）来显示。
-    play music "audio/BGM/Inventing Flight.mp3"
+    play music "audio/music/InventingFlight.mp3"
     scene sunny sky
     with fade
     # 显示角色立绘。此处使用了占位图，但您也可以在图片目录添加命名为
@@ -20,6 +22,9 @@ label start:
 
     # 此处显示各行对话。
     "龙年初始，狐耳族女孩小空迎来了一个特别的日子。"
+    # 播放台词语音
+    play audio "audio/voice/goodmorning.mp3"
+    e "噢！早上好！今天也是个不错的早晨呢！"
     "天空晴朗明媚，小空满怀期待地请求小龙带她一起翱翔于苍穹之上。"
     "小龙欣然答应了她的请求，两人简单收拾行李后便踏上了旅程。"
     
@@ -44,7 +49,8 @@ label start:
             jump badend  # 开始游戏
 
 label goodend:
-    play music "audio/BGM/Stereotype News.mp3"
+    play music "audio/music/InventingFlight.mp3" if_changed
+    # play voice ""
     e "谢谢你救了我！"
     "他们飞越着山脉和森林，眺望着绵延的大地和湛蓝的海洋。"
     "小空的心中充满了喜悦和兴奋，她感受到了自由的力量，仿佛能够触摸到无限的可能。"
@@ -67,6 +73,8 @@ label goodend:
     "在这个特殊的龙年开始之际，小空和小龙的友谊将继续在天空中翱翔，见证彼此成长与坚强。"
     "他们深信，无论遇到什么困难，他们都会相互扶持，一同勇往直前，创造更多美好的回忆。"
     "于是，他们继续踏上了未知的旅程，一起探索这个广阔的世界，留下属于他们友情的故事，在每个龙年的开始都继续绽放。"
+    stop sound
+    stop music fadeout 1.0
     "{b}Good Ending{/b}."
     jump credits
 
@@ -74,7 +82,7 @@ label badend:
     scene black  # 设置背景为黑色
     with fade
     hide riding happy
-    play music "audio/BGM/A Very Brady Special.mp3"
+    play music "audio/music/A Very Brady Special.mp3" fadein 1.0
     "..."
     e "我和小龙的相识的场景回现在我的眼前"
     e "这些点滴小事，都是只属于我们两个的珍贵回忆。"
@@ -98,7 +106,10 @@ label badend:
 
 label credits:
     hide riding happy
+    stop sound
+    stop music fadeout 1.0
     $ renpy.movie_cutscene("images/cutscene/CreditsMovie.webm")
     scene black
+    with dissolve
     return
     # 此处为游戏结尾。
