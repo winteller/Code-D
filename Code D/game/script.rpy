@@ -2,8 +2,8 @@
 
 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。
 
-define e = Character("小空")
-define d = Character("小龙")
+define e = Character("小空",color="#fbffc8",font="gongfan.ttf")
+define d = Character("小龙",color="#c8ffc8",font="gongfan.ttf")
 
 # 游戏在此开始。
 
@@ -13,26 +13,31 @@ label start:
     # （命名为 bg room.png 或 bg room.jpg）来显示。
     play music "audio/BGM/Inventing Flight.mp3"
     scene sunny sky
-
+    with fade
     # 显示角色立绘。此处使用了占位图，但您也可以在图片目录添加命名为
     # eileen happy.png 的文件来将其替换掉。
 
-    show riding happy
 
     # 此处显示各行对话。
     "龙年初始，狐耳族女孩小空迎来了一个特别的日子。"
     "天空晴朗明媚，小空满怀期待地请求小龙带她一起翱翔于苍穹之上。"
     "小龙欣然答应了她的请求，两人简单收拾行李后便踏上了旅程。"
+    
+    show riding happy
+    with dissolve
     e "小龙，我们出发吧！"
     "他们来到了一片宽广的草原，那里的风吹拂着小空的长发，阳光温暖地洒在她们的身上。"
     "小龙展开双翼，小空轻盈地跃上他的背，仿佛融入了风中的自由。"
     #全屏播放动画后3秒后继续剧情
 
-    $ renpy.movie_cutscene("images/cutscene/riding_happy.webm",delay=3.0)
+    
     
     e "哇，慢一点。我可不想被摔下去！"
 
     menu:
+
+        "随着小龙开始加速冲向高空，小空决定..."
+
         "抓紧缰绳(进入goodend)":
             jump goodend  # 结束游戏
         "吓得松开双手去抱小龙(进入badend)":
@@ -62,12 +67,12 @@ label goodend:
     "在这个特殊的龙年开始之际，小空和小龙的友谊将继续在天空中翱翔，见证彼此成长与坚强。"
     "他们深信，无论遇到什么困难，他们都会相互扶持，一同勇往直前，创造更多美好的回忆。"
     "于是，他们继续踏上了未知的旅程，一起探索这个广阔的世界，留下属于他们友情的故事，在每个龙年的开始都继续绽放。"
-
+    "{b}Good Ending{/b}."
     jump credits
 
 label badend:
     scene black  # 设置背景为黑色
-    with dissolve
+    with fade
     hide riding happy
     play music "audio/BGM/A Very Brady Special.mp3"
     "..."
@@ -88,25 +93,12 @@ label badend:
     e "我希望他能记住，即使我不在身边，他也永远不会孤单。"
     e "现在，我接近了生命的最后时刻，我不再留恋这个世界。"
     e "我希望能够在另一个世界与小龙再次相遇，继续我们未完成的故事。"
-    
+    "{b}Bad Ending{/b}."
     jump credits
 
 label credits:
     hide riding happy
-    pause 1.0  # 等待1秒钟
-    "制作团队"  # 第一行文本
-    pause 1.0  # 每行文字显示后暂停1秒钟
-    "导演：熊超"  # 第一行文本
-    pause 1.0  # 每行文字显示后暂停1秒钟
-    "编剧: ChatGPT"  # 第二行文本
-    pause 1.0
-    "美术设计: Bing Create、Pika.art"  # 第三行文本
-    pause 1.0
-    "音乐: freepd"  # 第四行文本
-    pause 1.0
-    "特别感谢: 家人和朋友"  # 第五行文本
-    pause 1.0
-    "Ren'Py引擎"  # 第六行文本
-
+    $ renpy.movie_cutscene("images/cutscene/CreditsMovie.webm")
+    scene black
     return
     # 此处为游戏结尾。
