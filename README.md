@@ -45,6 +45,15 @@ distant village, fox totem, brick trail, short house, steam chimney, light snow,
 
 ![空的村子](/assets/konsvillage.jpg)
 
+
+### 森林王城
+
+```bing
+The floating islands of Podvox Kingdom are bathed in the soft glow of bioluminescent flora. Graceful creatures soar through the air, and vibrant gardens bloom with fantasticalflowers. wolf girl rim and kitten girl Gozaru, dressed in flowing, nature-inspired princess attire,rim with purple hair and gozaru have red hair, share a moment of laughter amidst the magical surroundings.ghibili style,ghibili animation
+```
+
+![森林王城](/assets/forestkindom.jfif)
+
 ###  
 
 ## 技术参数 Specifications
