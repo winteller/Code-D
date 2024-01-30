@@ -30,7 +30,7 @@ coming soon
 
 ### 龙谷脱险
 
-![冲出龙谷](/assets/riding2.webp)
+![冲出龙谷](/assets/riding.webp)
 
 ### 空的村子
 
