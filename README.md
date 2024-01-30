@@ -30,9 +30,18 @@ coming soon
 
 ### 龙谷脱险
 
+```midjournry
+a cute wolf girl,golden braid hair,green eyes,red scarf,black coat,riding chinese dragon,sunny sky,exude cloud,anime style,8k,most detailed,shot on 75mm
+Job ID: 79102954-c679-45f1-baab-d3a70857e87d
+seed 2111296844
+```
 ![冲出龙谷](/assets/riding.webp)
 
 ### 空的村子
+
+```bing
+distant village, fox totem, brick trail, short house, steam chimney, light snow, concept art, 4K, anime style, most detailed
+```
 
 ![空的村子](/assets/konsvillage.jpg)
 
