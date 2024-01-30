@@ -2,7 +2,7 @@
 
 Code D will be  a visual novel that based on the dragon year of 2024
 
-## 人物 Characters 
+## 人物设计 Characters 
 
 ### 狐耳少女 小空
 
@@ -24,6 +24,19 @@ coming soon
 ## 故事 Story
 
 >龙年初始，狐耳族女孩小空遇到了小龙，这是一个讲述关于她们之间的友情的故事。这天，天气晴朗，小空要求小龙带她在天空翱翔，在简单收拾行李后。他们出发了。
+
+
+## 美术设定 Concept Art
+
+### 龙谷脱险
+
+![冲出龙谷](/assets/riding.webp)
+
+### 空的村子
+
+![空的村子](/assets/konsvillage.jpg)
+
+###  
 
 ## 技术参数 Specifications
 
