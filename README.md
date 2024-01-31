@@ -28,9 +28,17 @@ coming soon
 
 ## 美术设定 Concept Art
 
+### 世界地图
+
+```bing
+A lovely hand drawn map Consist of four islands, With the Dragon Canyon in the center. Floating Kingdom on the east, Forgotten Village on the west, The other two is still unknown.
+```
+
+![世界地图](/assets/世界地图.png)
+
 ### 龙谷脱险
 
-```midjournry
+```midjourney
 a cute wolf girl,golden braid hair,green eyes,red scarf,black coat,riding chinese dragon,sunny sky,exude cloud,anime style,8k,most detailed,shot on 75mm
 Job ID: 79102954-c679-45f1-baab-d3a70857e87d
 seed 2111296844
