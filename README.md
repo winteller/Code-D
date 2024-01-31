@@ -4,6 +4,8 @@ Code D will be  a visual novel that based on the dragon year of 2024
 
 ## 人物设计 Characters 
 
+![小空与彩虹](/assets/小空彩红.jpg)
+
 ### 狐耳少女 小空
 
 留在地球上的旧人类，通过基因改造，获得了狐的身体特征。所佩戴的围巾，偶尔可以听到“天之声”，本质是旧时代科技的遗物，可以与轨道卫星进行远距离通信。
@@ -12,8 +14,7 @@ Code D will be  a visual novel that based on the dragon year of 2024
 a cute fox girl,golden braid hair,green eyes,red scarf,black coat
 ```
 
-示例
-![小空与彩虹](/assets/小空彩红.jpg)
+![暂无](/assets/coming.jpg)
 
 ### 龙族少年 小龙
 
