@@ -11,7 +11,7 @@ a cute fox girl,golden braid hair,green eyes,red scarf,black coat
 ```
 
 示例
-![小空与彩虹](/assets/小空彩红.jpg)
+![小空与彩虹](/assets/rainbow.jpg)
 
 ### 龙族少年 小龙
 
@@ -74,4 +74,4 @@ The floating islands of Podvox Kingdom are bathed in the soft glow of biolumines
 
 扫码预约远程协助，2杯咖啡解决一个电脑问题哦。
 
-![店铺小程序](/assets/店铺.jpg)
+![店铺小程序](/assets/shop.jpg)
