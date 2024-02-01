@@ -4,7 +4,7 @@ Code D will be  a visual novel that based on the dragon year of 2024
 
 ## 人物设计 Characters 
 
-![小空与彩虹](/assets/小空彩红.jpg)
+![小空与彩虹](/assets/rainbow.jpg)
 
 ### 狐耳少女 小空
 
@@ -13,9 +13,6 @@ Code D will be  a visual novel that based on the dragon year of 2024
 ```prompt
 a cute fox girl,golden braid hair,green eyes,red scarf,black coat
 ```
-
-示例
-![小空与彩虹](/assets/小空彩红.jpg)
 
 ### 龙族少年 小龙
 
@@ -46,7 +43,7 @@ coming soon
 
 > A lovely hand drawn map Consist of four islands, With the Dragon Canyon in the center. Floating Kingdom on the east, Forgotten Village on the west, The other two is still unknown.
 
-![世界地图](/assets/世界地图.png)
+![世界地图](/assets/map.png)
 
 ### 龙谷脱险
 
