@@ -2,9 +2,11 @@
 
 Code D will be  a visual novel that based on the dragon year of 2024
 
-## 人物设计 Characters 
+[开发者自述](/assets/开发者自述.md)
 
-![小空与彩虹](/assets/rainbow.jpg)
+## 人物设计 Characters
+
+![小空与彩虹](/CodeD/game/images/gallery/rainbow.jpg)
 
 ### 狐耳少女 小空
 
@@ -43,7 +45,7 @@ coming soon
 
 > A lovely hand drawn map Consist of four islands, With the Dragon Canyon in the center. Floating Kingdom on the east, Forgotten Village on the west, The other two is still unknown.
 
-![世界地图](/assets/map.png)
+![世界地图](/CodeD/game/images/gallery/map.jpg)
 
 ### 龙谷脱险
 
@@ -51,22 +53,21 @@ coming soon
 Job ID: 79102954-c679-45f1-baab-d3a70857e87d
 seed 2111296844
 
-![冲出龙谷](/assets/riding.webp)
+![冲出龙谷](/CodeD/game/images/gallery/riding.jpg)
 
 ### 空的村子
 
 >distant village, fox totem, brick trail, short house, steam chimney, light snow, concept art, 4K, anime style, most detailed
 
-![空的村子](/assets/konsvillage.jpg)
+![空的村子](/CodeD/game/images/gallery/konsvillage.jpg)
 
 
 ### 森林王城
 
 >The floating islands of Forest Kingdom are bathed in the soft glow of bioluminescent flora. Graceful creatures soar through the air, and vibrant gardens bloom with fantasticalflowers. wolf girl Wysteria and kitten girl Sunnydaze, dressed in flowing, nature-inspired princess attire,Wysteria with purple hair and Sunnydaze have red hair, share a moment of laughter amidst the magical surroundings.ghibili style,ghibili animation
 
-![森林王城](/assets/forestkindom.jfif)
+![森林王城](/CodeD/game/images/gallery/forestkindom.jpg)
 
-###  
 
 ## 技术参数 Specifications
 
