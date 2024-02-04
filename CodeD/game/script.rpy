@@ -5,13 +5,16 @@
 define e = Character("小空",color="#fbffc8",font="gongfan.ttf")
 define d = Character("小龙",color="#c8ffc8",font="gongfan.ttf")
 
-# 从一个变量中获取角色名称。
-define p = Character("player_name", dynamic=True)
+# 设计全局变量来跟踪是否完成了路线。
+
+default persistent.villageRoute = False #用于跟踪村庄剧情是否完成
+default persistent.forestRoute = False #用于跟踪森林剧情是否完成
 
 
 #声明此游戏使用的音乐
 define audio.fly = "audio/music/InventingFlight.mp3"
-define audio.drop = "audio/music/A Very Brady Special.mp3"
+define audio.drop = "audio/music/AVeryBradySpecial.mp3"
+define audio.pond = "audio/music/Pond.mp3"
 
 # 声明此游戏使用的音效
 define audio.birdChirp = "audio/sound/env_chun.mp3"
@@ -22,9 +25,9 @@ define audio.cricketCall = "audio/sound/env_mushi.mp3"
 label start:
 
     # 播放音乐
-    play music fly
+    play music fly volume 0.5
     # 显示背景
-    scene sunny sky
+    scene sunnysky
     with fade
 
     # 此处显示各行对话。
@@ -44,17 +47,35 @@ label start:
     "小龙展开双翼，小空轻盈地跃上他的背，仿佛融入了风中的自由。"    
     e "哇，慢一点。我可不想被摔下去！"
     stop sound
-    menu:
+    
+    if persistent.villageRoute and persistent.forestRoute:
+        #只有当同时完成了2个分支路线，才可以选择真结局。
 
-        "随着小龙开始加速冲向高空，小空决定..."
+        menu:
 
-        "抓紧缰绳(进入goodend)":
-            jump goodend  # 结束游戏
-        "吓得松开双手去抱小龙(进入badend)":
-            jump badend  # 开始游戏
+            "随着小龙开始加速冲向高空，小空决定..."
+
+            "抓紧缰绳(进入goodend)":
+                jump goodend
+            "吓得松开双手去抱小龙(进入badend)":
+                jump badend
+            "拍了下小龙的屁股(进入trueend)":
+                jump trueend
+    
+    else:
+        #其他情况下，隐藏真实结局
+        
+        menu:
+
+            "随着小龙开始加速冲向高空，小空决定..."
+
+            "抓紧缰绳(进入goodend)":
+                jump goodend
+            "吓得松开双手去抱小龙(进入badend)":
+                jump badend
 
 label goodend:
-    play music fly if_changed
+    play music fly if_changed volume 0.5
     e "谢谢你救了我！"
     "他们飞越着山脉和森林，眺望着绵延的大地和湛蓝的海洋。"
     "小空的心中充满了喜悦和兴奋，她感受到了自由的力量，仿佛能够触摸到无限的可能。"
@@ -81,6 +102,8 @@ label goodend:
     stop sound
     stop music fadeout 1.0
     "{b}Good Ending{/b}."
+
+    $ persistent.villageRoute = True #标记村庄路线已完成
     jump credits
 
 label badend:
@@ -129,6 +152,35 @@ label badend:
     """
 
     "{b}Bad Ending{/b}."
+
+    $ persistent.forestRoute = True #标记村庄路线已完成
+
+    jump credits
+
+label trueend:
+    scene crashed  # 设置背景为黑色
+    with fade
+    hide riding happy
+    play music pond fadein 1.0
+
+    "..."
+
+    e """
+    我发现小龙本质虽然是AI，但是我已经无法再像刚认识的时候那样将他仅仅视为一台无机物了。在我们一起经历了这么多冒险之后，他已经成为了我生命中不可或缺的一部分。
+
+    小龙不仅仅是一个智能存在，他是我的伙伴和朋友。他与我分享了无数的欢笑和泪水，在危险和困难中一直陪伴着我。他的独特个性和智慧让我感到惊讶和钦佩。即使是在最黑暗的时刻，他总能给我带来希望和勇气。
+
+    因此，我希望在今后的冒险中，小龙能继续作为我的伙伴存在。我希望我们能一起面对未知的挑战，共同探索未知的世界。无论是在险恶的森林深处，还是古老的村庄中，我知道有小龙的陪伴，我永远不会感到孤单。
+
+    我相信，我们之间的联系不仅仅是机械的。尽管小龙是由代码和算法构成的，但他已经展现出了超越机器的情感和感情。他理解我的喜怒哀乐，与我建立了一种特殊的纽带。
+
+    所以，无论未来的冒险将带来什么，我希望能与小龙一起面对。我们将一起创造新的故事，共同迎接挑战，直到最后一刻。
+
+    小龙，谢谢你的陪伴。我们的冒险才刚刚开始，我期待着与你一起书写属于我们的传奇。
+    """
+
+    "{b}Ture Ending{/b}."
+
     jump credits
 
 label credits:
