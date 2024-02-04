@@ -24,8 +24,6 @@ a cute fox girl,golden braid hair,green eyes,red scarf,black coat
 coming soon
 ```
 
-示例
-
 ## 故事 Story
 
 在人类离开地球200万年后，地表常年冰雪覆盖，留下来的人，不得不通过基因改造，获得了野兽的身体能力。
@@ -87,4 +85,4 @@ seed 2111296844
 
 扫码预约远程协助，2杯咖啡解决一个电脑问题哦。
 
-![店铺小程序](/assets/shop.jpg)
+![店铺小程序](/CodeD/game/images/gallery/shop.jpg)
