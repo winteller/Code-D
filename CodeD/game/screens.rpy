@@ -316,8 +316,8 @@ screen navigation():
             textbutton _("帮助") action ShowMenu("help")
 
         if renpy.variant("pc"):
-            # 添加画廊模式
-            textbutton _("画廊") action ShowMenu("gallery") 
+            # # 添加画廊模式
+            # textbutton _("画廊") action ShowMenu("gallery") 
             ## 退出按钮在 iOS 上是被禁止使用的，在安卓和网页上也不是必要的。
             textbutton _("退出") action Quit(confirm=not main_menu)
 
@@ -1585,38 +1585,4 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
-
-
-## 创建 画廊界面（screen）
-screen gallery:
- 
-## # 确保任何其他菜单界面都会被替换。
-    tag menu
- 
-## 背景图。
-    add "gallery/back.jpg"
- 
-## 创建 vbox布局参考。具体参考文档：[url=https://doc.renpy.cn/zh-CN/displayables.html?highlight=vbox#VBox]https://doc.renpy.cn/zh-CN/displayables.html?highlight=vbox#VBox[/url]
-    vbox: # 框体内成员布局顺序从上到下。
-        xalign 0.5
-        yalign 0.5
-        spacing 120 # 方框(box)样式特性，方块内成员之间的空间距离，单位为像素。
- 
-## 调用make_button
-## 关于make_button，参考中文文档：[url=https://doc.renpy.cn/zh-CN/rooms.html?highlight=make_button#Gallery.make_button]https://doc.renpy.cn/zh-CN/rooms.h ... Gallery.make_button[/url]
-        hbox: # 框体内成员布局顺序从左到右，与vbox相反，都是用来结构布局。
-            spacing 100
-            add g_cg.make_button("1-1", "1-1_p", xalign=0.5, yalign=0.5) # "1-1_p.png"是"1-1_cg"缩略图。
-            add g_cg.make_button("1-2", "1-2_p", xalign=0.5, yalign=0.5)
- 
-        hbox:
-            spacing 100
-            add g_cg.make_button("2-1", "2-1_p", xalign=0.5, yalign=0.5)
-            add g_cg.make_button("2-2", "2-2_p", xalign=0.5, yalign=0.5)
- 
-        hbox:
-            spacing 100
-            add g_cg.make_button("3-1", "3-1_p", xalign=0.5, yalign=0.5)
-            add g_cg.make_button("3-2", "3-2_p", xalign=0.5, yalign=0.5)
- 
-## 可以继续增加，不过需要调整布局以及 spacing间距了。
+    

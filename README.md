@@ -2,7 +2,7 @@
 
 Code D will be  a visual novel that based on the dragon year of 2024
 
-[开发者自述](/assets/开发者自述.md)
+[开发者自述](https://docs.qq.com/doc/DRU5UeHBoQlRnQWNK)
 
 ## 人物设计 Characters
 

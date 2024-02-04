@@ -5,7 +5,7 @@
 define e = Character("小空",color="#fbffc8",font="gongfan.ttf")
 define d = Character("小龙",color="#c8ffc8",font="gongfan.ttf")
 
-# 设计全局变量来跟踪是否完成了路线。
+# 申明持久化变量来跟踪是否完成了路线。
 
 default persistent.villageRoute = False #用于跟踪村庄剧情是否完成
 default persistent.forestRoute = False #用于跟踪森林剧情是否完成
@@ -17,8 +17,15 @@ define audio.drop = "audio/music/AVeryBradySpecial.mp3"
 define audio.pond = "audio/music/Pond.mp3"
 
 # 声明此游戏使用的音效
-define audio.birdChirp = "audio/sound/env_chun.mp3"
-define audio.cricketCall = "audio/sound/env_mushi.mp3"
+define audio.bird = "audio/sound/env_chun.mp3"
+define audio.cricket = "audio/sound/env_mushi.mp3"
+
+
+# 声明此游戏使用的图像
+# 人物立绘请使用PNG
+
+# 其他内容请使用JPG
+
 
 # 游戏开始
 
@@ -35,7 +42,7 @@ label start:
     # 播放语音
     play audio goodmorning
     # 播放音效
-    play sound birdChirp
+    play sound bird
     e "噢！早上好！今天也是个不错的早晨呢！"
     "天空晴朗明媚，小空满怀期待地请求小龙带她一起翱翔于苍穹之上。"
     "小龙欣然答应了她的请求，两人简单收拾行李后便踏上了旅程。"
@@ -81,7 +88,7 @@ label goodend:
     "小空的心中充满了喜悦和兴奋，她感受到了自由的力量，仿佛能够触摸到无限的可能。"
     "小龙飞行的技巧熟练而优雅，他们在空中自在地穿梭，享受着这无与伦比的美妙时刻。"
     "小空的狐耳在风中飘动，笑容如花绽放，她感激地凝视着小龙，心中充满了对这段友情的珍视。"
-    play sound birdChirp
+    play sound bird
     "他们降落在一片花海之中，绚烂的花朵散发出迷人的香气。"
     "小空跳下小龙的背，她向四周张望，发现了一朵特别美丽的花。"
     "她小心翼翼地摘下它，轻轻握在手中。"
@@ -127,7 +134,7 @@ label badend:
 
     我们一起度过了那么多美好的时光，分享着彼此的喜怒哀乐，无论是欢笑还是泪水，我们总是互相扶持着走过每一个艰难的时刻。
     """
-    play sound cricketCall
+    play sound cricket
 
     e """
     然而，命运却对我开了一个残酷的玩笑。
