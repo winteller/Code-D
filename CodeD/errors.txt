@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 23: Line is indented, but the preceding define statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    default VillageRoute = False  
-    ^
+File "game/script.rpy", line 43: expected 'image_name_component' not found.
+    hide scene
+        ^
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Sat Feb  3 20:11:18 2024
+Mon Feb  5 13:59:10 2024

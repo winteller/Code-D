@@ -1,5 +1,15 @@
 ﻿# 游戏的脚本可置于此文件中。
 
+#启用基于模型的渲染器以支持Live2D
+define config.gl2 = True
+
+#声明使用的Live2D角色
+image hiyori close = Live2D("Resources/Hiyori", base=.6)
+image hiyori far = Live2D("Resources/Hiyori", base=.9)
+
+# # 声明动作数据列表
+# $ motions = ["motion1", "motion2", "motion3"]
+
 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。字体参数可使姓名使用自定义字体。
 
 define e = Character("小空",color="#fbffc8",font="gongfan.ttf")
@@ -25,30 +35,51 @@ define audio.cricket = "audio/sound/env_mushi.mp3"
 # 人物立绘请使用PNG
 
 # 其他内容请使用JPG
+image logo = "images/scene/opening.png"
 
+# 在主菜单显示之前执行的代码
+label before_main_menu:
+    # 定义语音列表
+    define voice_list = [
+        audio.bird,
+        audio.cricket,
+        audio.fly,
+        audio.pond
+        ]
+    # 随机选择一个语音
+    define audio.opening = renpy.random.choice(voice_list)
+    # 播放角色语音同时全屏显示Logo图像
+    play music opening volume 0.5
+    scene logo
+    with dissolve
+    $ renpy.pause(3.0)  # 停留3秒钟显示Logo
+    scene black
+    with dissolve
+    stop music
+    return
 
 # 游戏开始
 
 label start:
-
     # 播放音乐
     play music fly volume 0.5
     # 显示背景
     scene sunnysky
     with fade
 
+   
     # 此处显示各行对话。
     "龙年初始，狐耳族女孩小空迎来了一个特别的日子。"
     # 播放语音
     play audio goodmorning
     # 播放音效
     play sound bird
+    # 显示角色Live2D立绘
+    show hiyori close m08
+    with dissolve
     e "噢！早上好！今天也是个不错的早晨呢！"
     "天空晴朗明媚，小空满怀期待地请求小龙带她一起翱翔于苍穹之上。"
     "小龙欣然答应了她的请求，两人简单收拾行李后便踏上了旅程。"
-    # 显示角色立绘。
-    show riding happy
-    with dissolve
     e "小龙，我们出发吧！"
     "他们来到了一片宽广的草原，那里的风吹拂着小空的长发，阳光温暖地洒在她们的身上。"
     "小龙展开双翼，小空轻盈地跃上他的背，仿佛融入了风中的自由。"    
@@ -106,8 +137,6 @@ label goodend:
     "在这个特殊的龙年开始之际，小空和小龙的友谊将继续在天空中翱翔，见证彼此成长与坚强。"
     "他们深信，无论遇到什么困难，他们都会相互扶持，一同勇往直前，创造更多美好的回忆。"
     "于是，他们继续踏上了未知的旅程，一起探索这个广阔的世界，留下属于他们友情的故事，在每个龙年的开始都继续绽放。"
-    stop sound
-    stop music fadeout 1.0
     "{b}Good Ending{/b}."
 
     $ persistent.villageRoute = True #标记村庄路线已完成
@@ -193,7 +222,7 @@ label trueend:
 label credits:
     hide riding happy
     stop sound
-    stop music fadeout 1.0
+    stop music
     $ renpy.movie_cutscene("images/cutscene/CreditsMovie.webm")
     scene black
     with fade
