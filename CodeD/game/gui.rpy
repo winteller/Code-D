@@ -6,10 +6,13 @@
 ## 行。
 init offset = -2
 
+# 自定义UI整体宽高
+define uix = 1024
+define uiy = 1024
 ## 调用 gui.init 会将样式重置为合理的默认值，并设置游戏的宽度和高度（基准分辨
 ## 率）。
 init python:
-    gui.init(1920, 1080)
+    gui.init(uix, uiy)
 
 ## 启用对屏幕或变换中无效或不稳定属性的检查
 define config.check_conflicting_properties = True
@@ -95,7 +98,7 @@ define gui.game_menu_background = "gui/game_menu.png"
 ## 这些变量控制对话如何在屏幕上逐行显示。
 
 ## 包含对话的文本框的高度。
-define gui.textbox_height = 278
+define gui.textbox_height = 270
 
 ## 文本框在屏幕上的垂直位置。0.0 是顶部，0.5 是居中，1.0 是底部。
 define gui.textbox_yalign = 1.0
@@ -103,7 +106,7 @@ define gui.textbox_yalign = 1.0
 
 ## 叙述角色名字相对于文本框的位置。可以是从左侧或顶部起的整数像素，或设为 0.5 来
 ## 居中。
-define gui.name_xpos = 360
+define gui.name_xpos = 150
 define gui.name_ypos = 0
 
 ## 角色名字的水平对齐方式。0.0 为左侧对齐，0.5 为居中显示，而 1.0 为右侧对齐。
@@ -122,11 +125,11 @@ define gui.namebox_tile = False
 
 ## 对话相对于文本框的位置。可以是相对于文本框从左侧或顶部起的整数像素，或设为
 ## 0.5 来居中。
-define gui.dialogue_xpos = 402
+define gui.dialogue_xpos = gui.name_xpos 
 define gui.dialogue_ypos = 75
 
-## 对话文本的最大宽度，以像素为单位。
-define gui.dialogue_width = 1116
+## 对话文本的最大宽度，以像素为单位。用于控制台词换行的位置，等于全屏尺寸1024减去2x左侧偏移
+define gui.dialogue_width = uix - 2*gui.name_xpos
 
 ## 对话文本的水平对齐方式。0.0 为左侧对齐，0.5 为居中显示，而 1.0 为右侧对齐。
 define gui.dialogue_text_xalign = 0.0

@@ -1,15 +1,5 @@
 ﻿# 游戏的脚本可置于此文件中。
 
-#启用基于模型的渲染器以支持Live2D
-define config.gl2 = True
-
-#声明使用的Live2D角色
-image hiyori close = Live2D("Resources/Hiyori", base=.6)
-image hiyori far = Live2D("Resources/Hiyori", base=.9)
-
-# # 声明动作数据列表
-# $ motions = ["motion1", "motion2", "motion3"]
-
 # 声明此游戏使用的角色。颜色参数可使角色姓名着色。字体参数可使姓名使用自定义字体。
 
 define e = Character("小空",color="#fbffc8",font="gongfan.ttf")
@@ -33,36 +23,49 @@ define audio.cricket = "audio/sound/env_mushi.mp3"
 
 # 声明此游戏使用的图像
 # 人物立绘请使用PNG
+image konIdleHappy = "images/character/p1e1.png"
+image konIdleSad = "images/character/p1e2.png"
+image konIdleSmile = "images/character/p1e3.png"
+image konIdleSerious = "images/character/p1e4.png"
+image konLeftHappy = "images/character/p2e1.png"
+image konLeftSurprise = "images/character/p2e2.png"
+image konLeftSerious = "images/character/p2e3.png"
+image konLeftSmile = "images/character/p2e4.png"
 
 # 其他内容请使用JPG
 image logo = "images/scene/opening.png"
 
-# 在主菜单显示之前执行的代码
-label before_main_menu:
+# 自定义启动画面，只在游戏启动时运行一次，非必须
+label splashscreen:
     # 定义语音列表
     define voice_list = [
-        audio.bird,
-        audio.cricket,
-        audio.fly,
-        audio.pond
+        "audio/voice/shaonian.mp3",
+        "audio/voice/xiaoxiong.mp3",
+        "audio/voice/fengxue.mp3",
+        "audio/voice/charles.mp3"
         ]
     # 随机选择一个语音
     define audio.opening = renpy.random.choice(voice_list)
     # 播放角色语音同时全屏显示Logo图像
-    play music opening volume 0.5
+    play audio opening volume 0.5
     scene logo
     with dissolve
     $ renpy.pause(3.0)  # 停留3秒钟显示Logo
     scene black
     with dissolve
-    stop music
+    stop audio
+    jump before_main_menu
+
+# 自定义在主菜单加载之前执行的代码，每次回到主菜单时都会运行一次，非必须
+label before_main_menu:
     return
 
 # 游戏开始
 
+# 在主菜单点击开始游戏后执行的代码，必须且无法自定义。
 label start:
     # 播放音乐
-    play music fly volume 0.5
+    play music fly volume 0.5 fadein 1.0
     # 显示背景
     scene sunnysky
     with fade
@@ -74,15 +77,24 @@ label start:
     play audio goodmorning
     # 播放音效
     play sound bird
-    # 显示角色Live2D立绘
-    show hiyori close m08
+    
+    # 显示角色立绘
+    show konIdleHappy
     with dissolve
+
     e "噢！早上好！今天也是个不错的早晨呢！"
+    
     "天空晴朗明媚，小空满怀期待地请求小龙带她一起翱翔于苍穹之上。"
     "小龙欣然答应了她的请求，两人简单收拾行李后便踏上了旅程。"
+    
+    show konIdleSmile
+    with dissolve
+
     e "小龙，我们出发吧！"
     "他们来到了一片宽广的草原，那里的风吹拂着小空的长发，阳光温暖地洒在她们的身上。"
     "小龙展开双翼，小空轻盈地跃上他的背，仿佛融入了风中的自由。"    
+    show konIdleSerious
+    with vpunch
     e "哇，慢一点。我可不想被摔下去！"
     stop sound
     
@@ -114,6 +126,7 @@ label start:
 
 label goodend:
     play music fly if_changed volume 0.5
+    show konIdleSmile
     e "谢谢你救了我！"
     "他们飞越着山脉和森林，眺望着绵延的大地和湛蓝的海洋。"
     "小空的心中充满了喜悦和兴奋，她感受到了自由的力量，仿佛能够触摸到无限的可能。"
@@ -140,14 +153,16 @@ label goodend:
     "{b}Good Ending{/b}."
 
     $ persistent.villageRoute = True #标记村庄路线已完成
+    hide konIdleSmile
     jump credits
 
 label badend:
     scene black  # 设置背景为黑色
     with fade
-    hide riding happy
     play music drop fadein 1.0
     "..."
+    show konIdleSad
+
     e """
     我和小龙的相识的场景回现在我的眼前。
 
@@ -196,35 +211,42 @@ label badend:
 label trueend:
     scene crashed  # 设置背景为黑色
     with fade
-    hide riding happy
+    show konIdleSmile
     play music pond fadein 1.0
 
     "..."
 
     e """
-    我发现小龙本质虽然是AI，但是我已经无法再像刚认识的时候那样将他仅仅视为一台无机物了。在我们一起经历了这么多冒险之后，他已经成为了我生命中不可或缺的一部分。
+    我发现小龙本质虽然是AI，但是我已经无法再像刚认识的时候那样将他仅仅视为无机物了。
+    
+    在我们一起经历了这么多冒险之后，他已经成为了我生命中不可或缺的一部分。
 
-    小龙不仅仅是一个智能存在，他是我的伙伴和朋友。他与我分享了无数的欢笑和泪水，在危险和困难中一直陪伴着我。他的独特个性和智慧让我感到惊讶和钦佩。即使是在最黑暗的时刻，他总能给我带来希望和勇气。
+    小龙不仅仅是一个智能存在，他是我的伙伴和朋友。他与我分享了无数的欢笑和泪水，在危险和困难中一直陪伴着我。
+    
+    他的独特个性和智慧让我感到惊讶和钦佩。即使是在最黑暗的时刻，他总能给我带来希望和勇气。
 
-    因此，我希望在今后的冒险中，小龙能继续作为我的伙伴存在。我希望我们能一起面对未知的挑战，共同探索未知的世界。无论是在险恶的森林深处，还是古老的村庄中，我知道有小龙的陪伴，我永远不会感到孤单。
+    因此，我希望在今后的冒险中，小龙能继续作为我的伙伴存在。我希望我们能一起面对未知的挑战，共同探索未知的世界。
+    
+    无论是在险恶的森林深处，还是古老的村庄中，我知道有小龙的陪伴，我永远不会感到孤单。
 
-    我相信，我们之间的联系不仅仅是机械的。尽管小龙是由代码和算法构成的，但他已经展现出了超越机器的情感和感情。他理解我的喜怒哀乐，与我建立了一种特殊的纽带。
+    我相信，我们之间的联系不仅仅是机械的。尽管小龙是由代码和算法构成的，但他已经展现出了超越机器的情感和感情。
+    
+    他理解我的喜怒哀乐，与我建立了一种特殊的纽带。
 
     所以，无论未来的冒险将带来什么，我希望能与小龙一起面对。我们将一起创造新的故事，共同迎接挑战，直到最后一刻。
 
     小龙，谢谢你的陪伴。我们的冒险才刚刚开始，我期待着与你一起书写属于我们的传奇。
     """
 
-    "{b}Ture Ending{/b}."
+    "{b}True Ending{/b}."
 
     jump credits
 
 label credits:
-    hide riding happy
     stop sound
     stop music
     $ renpy.movie_cutscene("images/cutscene/CreditsMovie.webm")
     scene black
-    with fade
+    with dissolve
     return
     # 此处为游戏结尾。
